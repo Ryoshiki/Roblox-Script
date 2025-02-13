@@ -204,6 +204,7 @@ while _G.F do wait()
   pcall(function()
 for i,v in next, game.Players.LocalPlayer.Character:GetChildren() do
   if v:IsA("Tool") and v.Name:lower():find("rod") then
+    game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("PetControl","fishing","Start")
     game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("PetControl","fishing","Caught",true)
   end
 end
