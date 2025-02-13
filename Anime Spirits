@@ -198,6 +198,23 @@ end
 end
 end)
 
+tab.newToggle("auto caught fish", "caught fish when fishing", false, function(toggleState)
+_G.F = toggleState
+while _G.F do wait()
+  pcall(function()
+local args = {
+    [1] = "PetControl",
+    [2] = "fishing",
+    [3] = "Caught",
+    [4] = true
+}
+
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer(unpack(args))
+
+  end)
+end
+end)
+
 tab.newButton("Coppy Item Name", "Click For Coppy Item Name", function()
 for i,v in next, game.Players.LocalPlayer.Character:GetChildren() do
 	if v.ClassName == "Tool" then
