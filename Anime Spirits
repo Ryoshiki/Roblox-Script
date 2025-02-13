@@ -1,0 +1,358 @@
+local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
+local window = DrRayLibrary:Load("Anime Spirit made by @kazuma9999", "Default")
+local tab = DrRayLibrary.newTab("Main", "6031097225")
+tab.newToggle("BossFarm", "Dungeon Boss Farm(No Instant Kill)", false, function(toggleState)
+function TP(P)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
+end
+
+_G.AutoFarm = toggleState
+lpr = game:GetService("Players").LocalPlayer
+task.spawn(function()
+    while task.wait() do
+        pcall(function()
+            if _G.AutoFarm then
+                if syn then    setfflag("HumanoidParallelRemoveNoPhysics", "False")
+                    setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+                    lpr.Character.Humanoid:ChangeState(11)
+                    if lpr.Character:WaitForChild("Humanoid").Sit == true then
+                        lpr.Character:WaitForChild("Humanoid").Sit = false
+                    end
+                else
+                    if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                        if not lpr.Character.HumanoidRootPart:FindFirstChild("BodyVelocity1") then
+                            if lpr.Character:WaitForChild("Humanoid").Sit == true then
+                                lpr.Character:WaitForChild("Humanoid").Sit = false
+                            end
+                            local bodyVelocity = Instance.new("BodyVelocity")
+                            bodyVelocity.Name = "BodyVelocity1"
+                            bodyVelocity.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+                            bodyVelocity.velocity = Vector3.new(0, 0, 0)
+                            bodyVelocity.maxForce = Vector3.new(100000, 100000, 100000)
+                        end
+                    end
+                end
+            else
+                lpr.Character.HumanoidRootPart:FindFirstChild("BodyVelocity1"):Destroy()
+            end
+        end)
+    end
+end)
+while _G.AutoFarm do wait(.00001)
+	pcall(function()
+for i,v in next, workspace.Boss:GetChildren() do
+		if v:IsA("Model") and v.Humanoid.Health >= 0 then
+		    TP(v.HumanoidRootPart.CFrame * CFrame.new(0, 20, 0))
+		  game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("CombatControl", "CoyoteSharksPistols", 2, false, true)
+		end
+end
+  end)
+end
+end)
+tab.newToggle("Dungeon MonFarm", "Dungeon Mon Farm(No Instant Kill)", false, function(toggleState)
+function TP(P)
+	game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = P
+end
+
+_G.AutoFarm = toggleState
+lpr = game:GetService("Players").LocalPlayer
+task.spawn(function()
+    while task.wait() do
+        pcall(function()
+            if _G.AutoFarm then
+                if syn then    setfflag("HumanoidParallelRemoveNoPhysics", "False")
+                    setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+                    lpr.Character.Humanoid:ChangeState(11)
+                    if lpr.Character:WaitForChild("Humanoid").Sit == true then
+                        lpr.Character:WaitForChild("Humanoid").Sit = false
+                    end
+                else
+                    if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+                        if not lpr.Character.HumanoidRootPart:FindFirstChild("BodyVelocity1") then
+                            if lpr.Character:WaitForChild("Humanoid").Sit == true then
+                                lpr.Character:WaitForChild("Humanoid").Sit = false
+                            end
+                            local bodyVelocity = Instance.new("BodyVelocity")
+                            bodyVelocity.Name = "BodyVelocity1"
+                            bodyVelocity.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+                            bodyVelocity.velocity = Vector3.new(0, 0, 0)
+                            bodyVelocity.maxForce = Vector3.new(100000, 100000, 100000)
+                        end
+                    end
+                end
+            else
+                lpr.Character.HumanoidRootPart:FindFirstChild("BodyVelocity1"):Destroy()
+            end
+        end)
+    end
+end)
+while _G.AutoFarm do wait(.00001)
+	pcall(function()
+for i,v in next, workspace.WaveEnemies:GetChildren() do
+		if v:IsA("Model") and v.Humanoid.Health >= 0 then
+		    TP(v.HumanoidRootPart.CFrame * CFrame.new(0,5,0))
+		  game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("CombatControl", "CoyoteSharksPistols", 2, false, true)
+		end
+end
+  end)
+end
+end)
+
+tab.newToggle("instant kill normal mon around you", "you need to do 30% dmg for rewards and mon 70% HP for kill", false, function(toggleState)
+local plr = game.Players.LocalPlayer.Character.HumanoidRootPart
+_G.K = toggleState
+while _G.K do wait()
+  pcall(function()
+for i,v in pairs(workspace["NPC's"]:GetChildren()) do
+  if v.ClassName == "Model" then
+    if v.Humanoid.Health <= v.Humanoid.MaxHealth * 70/100 then
+      v.Humanoid.Health = die
+      if sethiddenproparty then
+        sethiddenproparty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+      end
+    end
+  end
+end
+  end)
+end
+end)
+tab.newButton("kill normal mon around you", "you beed to do dmg first or lower HP mon but need dmg 30% for rewards", function()
+for i,v in pairs(workspace["NPC's"]:GetChildren()) do
+  if v:IsA("Model") and v.Humanoid.Health < v.Humanoid.MaxHealth then
+      v.Humanoid.Health = die
+    if sethiddenproparty then
+        sethiddenproparty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+    end
+  end
+end
+end)
+tab.newToggle("instant kill dungeon boss", "Instant Kill Boss In Dungeon", false, function(toggleState)
+_G.k =toggleState
+while _G.k do wait()
+  pcall(function()
+for i,v in pairs(workspace.Boss:GetChildren()) do
+  if v:IsA("Model") and v.Humanoid.Health < v.Humanoid.MaxHealth then
+      v.Humanoid.Health = die
+    if sethiddenproparty then
+        sethiddenproparty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+    end
+  end
+end
+  end)
+end
+end)
+tab.newButton("boss kill", "You Need to do Dmg First", function()
+for i,v in pairs(workspace.Boss:GetChildren()) do
+  if v:IsA("Model") and v.Humanoid.Health < v.Humanoid.MaxHealth then
+      v.Humanoid.Health = die
+    if sethiddenproparty then
+        sethiddenproparty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+    end
+  end
+end
+end)
+tab.newToggle("jnstant kill dungeon mon", "Instant Kill Mon In Dungeon", false, function(toggleState)
+_G.k =toggleState
+while _G.k do wait()
+  pcall(function()
+for i,v in pairs(workspace.WaveEnemies:GetChildren()) do
+  if v:IsA("Model") and v.Humanoid.Health < v.Humanoid.MaxHealth then
+      v.Humanoid.Health = die
+    if sethiddenproparty then
+        sethiddenproparty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+    end
+  end
+end
+  end)
+end
+end)
+tab.newButton("dungeon mon kill", "You Need to do Dmg First", function()
+for i,v in pairs(workspace.WaveEnemies:GetChildren()) do
+  if v:IsA("Model") and v.Humanoid.Health < v.Humanoid.MaxHealth then
+      v.Humanoid.Health = die
+    if sethiddenproparty then
+        sethiddenproparty(game.Players.LocalPlayer, "SimulationRadius", math.huge)
+    end
+  end
+end
+end)
+
+local tab = DrRayLibrary.newTab("Misc", "6031097225")
+tab.newButton("Boost", "×2 Exp and More", function()
+game:GetService("Players").LocalPlayer.Data.DoubleExp.Value = 1
+game:GetService("Players").LocalPlayer.Data.DoubleMoney.Value = 1
+game:GetService("Players").LocalPlayer.Data.DragonballNotifier.Value = true
+game:GetService("Players").LocalPlayer.Data.LuckBoost.Value = 1
+game:GetService("Players").LocalPlayer.Data.Notifier.Value = true
+end)
+tab.newToggle("Fruits TP", "Pets lvl Farm(Fruits)", false, function(toggleState)
+local plr = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+_G.F = toggleState
+while _G.F do wait(.001)
+  pcall(function()
+for i,v in next, workspace.FruitSpawns:GetChildren() do
+  plr.CFrame = v.CFrame
+end
+  end)
+end
+end)
+
+tab.newButton("Coppy Item Name", "Click For Coppy Item Name", function()
+for i,v in next, game.Players.LocalPlayer.Character:GetChildren() do
+	if v.ClassName == "Tool" then
+		setclipboard(tostring(v.Name))
+	end
+end
+end)
+tab.newInput("Item Name", "Equip Item", function(text)
+tab.newToggle("Equip Item", text, false, function(toggleState)
+function EP(TO)
+Tool = game.Players.LocalPlayer.Backpack:FindFirstChild(TO)
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(Tool)
+end
+_G.E = toggleState
+while _G.E do wait(.001)
+  pcall(function()
+    EP(text)
+  end)
+end
+
+end)
+end)
+tab.newToggle("Attack Aura", "Scale With Weapon(Point to Weapon for more Dmg)", false, function(toggleState)
+_G.A = toggleState
+while _G.A do wait(.001)
+	pcall(function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("CombatControl", "CoyoteSharksPistols", 2, false, true)
+	end)
+end
+end)
+
+local tab = DrRayLibrary.newTab("Random", "6031097225")
+tab.newToggle("Random Soul", "Random 1", false, function(toggleState)
+_G.R = toggleState
+while _G.R do wait(.1)
+  pcall(function()
+local args = {
+    [1] = "SoulsDealer",
+    [2] = "G$25k 1 Soul"
+}
+
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer(unpack(args))
+
+  end)
+end
+end)
+tab.newToggle("Random Soul", "Random 5", false, function(toggleState)
+_G.R = toggleState
+while _G.R do wait(.1)
+  pcall(function()
+local args = {
+    [1] = "SoulsDealer",
+    [2] = "G$125k 5 Souls"
+}
+
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer(unpack(args))
+
+  end)
+end
+end)
+tab.newButton("Auto Delete", "Delete Common-Legendary Soul", function()
+game:GetService("ReplicatedStorage").AutoDeleteRemote:FireServer("Common", true)
+game:GetService("ReplicatedStorage").AutoDeleteRemote:FireServer("Rare", true)
+game:GetService("ReplicatedStorage").AutoDeleteRemote:FireServer("Epic", true)
+game:GetService("ReplicatedStorage").AutoDeleteRemote:FireServer("Legendary", true)
+end)
+tab.newButton("No Delete", "No Delete Soul", function()
+game:GetService("ReplicatedStorage").AutoDeleteRemote:FireServer("Common", false)
+game:GetService("ReplicatedStorage").AutoDeleteRemote:FireServer("Rare", false)
+game:GetService("ReplicatedStorage").AutoDeleteRemote:FireServer("Epic", false)
+game:GetService("ReplicatedStorage").AutoDeleteRemote:FireServer("Legendary", false)
+end)
+
+local tab = DrRayLibrary.newTab("TP Island", "6031097225")
+tab.newInput("1St Sea", "TP To Island", function(text)
+
+end)
+tab.newButton("Starter Lvl:1+", "TP to Starter Island", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "Dawn Island")
+end)
+tab.newButton("Monkey Island Lvl:25+", "TP to Monkey Island", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "Monkey Island")
+end)
+tab.newButton("Marine Lvl:90+", "TP to Marine Island", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "Marine Island")
+end)
+tab.newButton("Hidden Lvl:150+", "TP to Hidden Village", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "Hidden Village")
+end)
+tab.newButton("Drsert Lvl:210+", "TP to Desert Island", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "Desert Island")
+end)
+tab.newButton("Forest Lvl:265+", "TP to Forest Island", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "Forest Island")
+end)
+tab.newButton("West Lvl:340+", "TP to West City", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "West City")
+end)
+tab.newButton("Snow Lvl:400+", "TP to Snow Island", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "Snow Island")
+end)
+tab.newButton("Floating Building Lvl:450+", "TP to Floating Building", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "Floating Building")
+end)
+tab.newButton("Skypiea Lvl:500+", "TP to Skypiea", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "Skypiea")
+end)
+tab.newButton("JJK Lvl:580+", "TP to JJK Island", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "JJK ISLAND")
+end)
+tab.newButton("Doflamango Lvl:650+", "TP to Doflamango Island", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "Doflamango Island")
+end)
+tab.newButton("Shibuyo Lvl:725+", "TP to Shibuyo Incident", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "Shibuyo Incident")
+end)
+
+tab.newInput("2nd Sea", "TP To Island", function(text)
+
+end)
+tab.newButton("Starter Lvl:850+", "TP to Starter Island", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "Arrival Island")
+end)
+tab.newButton("Hueco Lvl:850+", "TP to Hueco Island", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "Hueca Mundu")
+end)
+tab.newButton("Rimuru Lvl:930+", "TP To Rimuru Island", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "Rimuro City")
+end)
+tab.newButton("Solo Lvl:1000+", "TP To Solo Island", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "Solo Island")
+end)
+tab.newButton("Jujutsu Lvl:1150+", "TP To Jujutsu Island", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "Jujutsu Academy")
+end)
+tab.newButton("Wano Lvl:1125+", "TP To Wano Island", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "Wano")
+end)
+tab.newButton("One Punch Lvl:1325+", "TP To One Punch Island", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "One Punch City")
+end)
+tab.newButton("Karakura Lvl:1575+", "TP To Karakura Island", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "Katakuro Town")
+end)
+tab.newButton("Clover Lvl:1650+", "TP To Clover Island", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "Clover Kingdom")
+end)
+tab.newInput("3Rd Sea", "TP To Island(Planet).", function(text)
+end)
+tab.newButton("Starter Lvl:1800+", "TP To Starter", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "Arrival Station")
+end)
+tab.newButton("Planet Soul Lvl:1800+", "TP To Planet Soul", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "Planet Soul")
+end)
+tab.newButton("Planet Jojo Lvl:2050+", "TP To Planet Jojo", function()
+game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("Teleporter", "Planet Jojo")
+end)
