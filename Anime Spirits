@@ -1,5 +1,5 @@
 local DrRayLibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/AZYsGithub/DrRay-UI-Library/main/DrRay.lua"))()
-local window = DrRayLibrary:Load("Anime Spirit made by @kazuma9999", "Default")
+local window = DrRayLibrary:Load("Anime Spirit made by x13PM", "Default")
 local tab = DrRayLibrary.newTab("Main", "6031097225")
 tab.newToggle("BossFarm", "Dungeon Boss Farm(No Instant Kill)", false, function(toggleState)
 function TP(P)
