@@ -202,15 +202,11 @@ tab.newToggle("auto caught fish", "caught fish when fishing", false, function(to
 _G.F = toggleState
 while _G.F do wait()
   pcall(function()
-local args = {
-    [1] = "PetControl",
-    [2] = "fishing",
-    [3] = "Caught",
-    [4] = true
-}
-
-game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer(unpack(args))
-
+for i,v in next, game.Players.LocalPlayer.Character:GetChildren() do
+  if v:IsA("Tiol") and v.Name:lower():find("rod") then
+    game:GetService("ReplicatedStorage").Game.Remotes.ServerHandler:FireServer("PetControl", "fishing", "Caught", true)
+  end
+end
   end)
 end
 end)
