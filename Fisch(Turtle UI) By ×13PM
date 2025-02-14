@@ -1,0 +1,383 @@
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/turtle"))()
+
+
+
+
+
+
+
+local OwO = library:Window("Table Turtle Hub")
+
+
+
+OwO:Button("Button name", function()
+
+   print("pressed button")
+
+end)
+
+OwO:Button("Button name", function()
+
+   print("pressed button")
+
+end)
+
+OwO:Toggle("Semi-Auto", false, function(bool)
+
+local Player = game:GetService("Players")
+
+local GuiService = game:GetService("GuiService")
+
+local VirtualInputManager = game:GetService("VirtualInputManager")
+
+local LocalPlayer = Player.LocalPlayer
+
+local t = true
+
+local f = false
+
+local plr = game.Players.LocalPlayer
+
+
+
+_G.Fish = bool
+
+while _G.Fish do wait(.000000001)
+
+	pcall(function()
+
+for i,v in next, game.Players.LocalPlayer.Character:GetChildren() do
+
+	if v.Name:lower():find("oxygen") then
+
+		v.Disabled = t
+
+	end
+
+	if v.Name:lower():find("temper") then
+
+		v.Disabled = t
+
+	end
+
+	if v.Name:lower():find("rod") then
+
+		local GUI = LocalPlayer.PlayerGui
+
+		local shakeui = GUI:FindFirstChild("shakeui")
+
+			if shakeui and shakeui.Enabled then
+
+				local safezone = shakeui:FindFirstChild("safezone")
+
+			if safezone then
+
+				local button = safezone:FindFirstChild("button")
+
+			if button and button:IsA("ImageButton" ) and button.Visible then
+
+				GuiService.SelectedCoreObject = button
+
+				VirtualInputManager:SendKeyEvent(true,Enum.KeyCode.Return,false,game)
+
+				VirtualInputManager:SendKeyEvent(false,Enum.KeyCode.Return,false,game)
+
+				end
+
+			end
+
+		end
+
+game:GetService("ReplicatedStorage").events:FindFirstChild("reelfinished "):FireServer(100, true)
+
+	end
+
+	if plr.PlayerGui.TouchGui.TouchControlFrame.JumpButton.Visible == f then
+
+		plr.PlayerGui.TouchGui.TouchControlFrame.JumpButton.Visible = t
+
+	end
+
+end
+
+	end)
+
+end
+
+end)
+
+OwO:Toggle("Full-Auto", false, function(bool)
+
+local Player = game:GetService("Players")
+
+local GuiService = game:GetService("GuiService")
+
+local VirtualInputManager = game:GetService("VirtualInputManager")
+
+local LocalPlayer = Player.LocalPlayer
+
+local t = true
+
+local f = false
+
+local plr = game.Players.LocalPlayer
+
+
+
+_G.Fish = bool
+
+while _G.Fish do wait(.00000001)
+
+	pcall(function()
+
+for i,v in next, game.Players.LocalPlayer.Character:GetChildren() do
+
+	if v.Name:lower():find("oxygen") then
+
+		v.Disabled = t
+
+	end
+
+	if v.Name:lower():find("temper") then
+
+		v.Disabled = t
+
+	end
+
+	if v.Name:lower():find("rod") then
+
+		game:GetService("Players").LocalPlayer.Character:FindFirstChild(v.Name).events.cast:FireServer(100, 1)
+
+		local GUI = LocalPlayer.PlayerGui
+
+		local shakeui = GUI:FindFirstChild("shakeui")
+
+			if shakeui and shakeui.Enabled then
+
+				local safezone = shakeui:FindFirstChild("safezone")
+
+			if safezone then
+
+				local button = safezone:FindFirstChild("button")
+
+			if button and button:IsA("ImageButton" ) and button.Visible then
+
+				GuiService.SelectedCoreObject = button
+
+				VirtualInputManager:SendKeyEvent(true,Enum.KeyCode.Return,false,game)
+
+				VirtualInputManager:SendKeyEvent(false,Enum.KeyCode.Return,false,game)
+
+				end
+
+			end
+
+		end
+
+game:GetService("ReplicatedStorage").events:FindFirstChild("reelfinished "):FireServer(100, true)
+
+	end
+
+	if plr.PlayerGui.TouchGui.TouchControlFrame.JumpButton.Visible == f then
+
+		plr.PlayerGui.TouchGui.TouchControlFrame.JumpButton.Visible = t
+
+	end
+
+end
+
+	end)
+
+end
+
+end)
+
+OwO:Toggle("Full-Auto/Jump-Lock", false, function(bool)
+
+local Player = game:GetService("Players")
+
+local GuiService = game:GetService("GuiService")
+
+local VirtualInputManager = game:GetService("VirtualInputManager")
+
+local LocalPlayer = Player.LocalPlayer
+
+local t = true
+
+local f = false
+
+local plr = game.Players.LocalPlayer
+
+
+
+_G.Fish = bool
+
+while _G.Fish do wait(.000000001)
+
+	pcall(function()
+
+for i,v in next, game.Players.LocalPlayer.Character:GetChildren() do
+
+	if v.Name:lower():find("oxygen") then
+
+		v.Disabled = t
+
+	end
+
+	if v.Name:lower():find("temper") then
+
+		v.Disabled = t
+
+	end
+
+	if v.Name:lower():find("rod") then
+
+		game:GetService("Players").LocalPlayer.Character:FindFirstChild(v.Name).events.cast:FireServer(100, 1)
+
+		local GUI = LocalPlayer.PlayerGui
+
+		local shakeui = GUI:FindFirstChild("shakeui")
+
+			if shakeui and shakeui.Enabled then
+
+				local safezone = shakeui:FindFirstChild("safezone")
+
+			if safezone then
+
+				local button = safezone:FindFirstChild("button")
+
+			if button and button:IsA("ImageButton" ) and button.Visible then
+
+				GuiService.SelectedCoreObject = button
+
+				VirtualInputManager:SendKeyEvent(true,Enum.KeyCode.Return,false,game)
+
+				VirtualInputManager:SendKeyEvent(false,Enum.KeyCode.Return,false,game)
+
+				end
+
+			end
+
+		end
+
+		if plr.Character.Humanoid.Jump == t then
+
+			game:GetService("ReplicatedStorage").events:FindFirstChild("reelfinished "):FireServer(100, true)
+
+		end
+
+		if plr.PlayerGui.hud.deviceinset.mobileOnly.centerIcon.Visible == f then
+
+			game:GetService("ReplicatedStorage").events:FindFirstChild("reelfinished "):FireServer(0, true)
+
+		end
+
+	end
+
+	if plr.PlayerGui.TouchGui.TouchControlFrame.JumpButton.Visible == f then
+
+		plr.PlayerGui.TouchGui.TouchControlFrame.JumpButton.Visible = t
+
+	end
+
+end
+
+	end)
+
+end
+
+end)
+
+OwO:Toggle("Semi-Auto/Jump-Lock", false, function(bool)
+
+local Player = game:GetService("Players")
+
+local GuiService = game:GetService("GuiService")
+
+local VirtualInputManager = game:GetService("VirtualInputManager")
+
+local LocalPlayer = Player.LocalPlayer
+
+local t = true
+
+local f = false
+
+local plr = game.Players.LocalPlayer
+
+
+
+_G.Fish = bool
+
+while _G.Fish do wait(.000000001)
+
+	pcall(function()
+
+for i,v in next, game.Players.LocalPlayer.Character:GetChildren() do
+
+	if v.Name:lower():find("oxygen") then
+
+		v.Disabled = t
+
+	end
+
+	if v.Name:lower():find("temper") then
+
+		v.Disabled = t
+
+	end
+
+	if v.Name:lower():find("rod") then
+
+		local GUI = LocalPlayer.PlayerGui
+
+		local shakeui = GUI:FindFirstChild("shakeui")
+
+			if shakeui and shakeui.Enabled then
+
+				local safezone = shakeui:FindFirstChild("safezone")
+
+			if safezone then
+
+				local button = safezone:FindFirstChild("button")
+
+			if button and button:IsA("ImageButton" ) and button.Visible then
+
+				GuiService.SelectedCoreObject = button
+
+				VirtualInputManager:SendKeyEvent(true,Enum.KeyCode.Return,false,game)
+
+				VirtualInputManager:SendKeyEvent(false,Enum.KeyCode.Return,false,game)
+
+				end
+
+			end
+
+		end
+
+	end
+
+	if plr.Character.Humanoid.Jump == t then
+
+		game:GetService("ReplicatedStorage").events:FindFirstChild("reelfinished "):FireServer(100, true)
+
+	end
+
+	if plr.PlayerGui.hud.deviceinset.mobileOnly.centerIcon.Visible == f then
+
+		game:GetService("ReplicatedStorage").events:FindFirstChild("reelfinished "):FireServer(0, true)
+
+	end
+
+	if plr.PlayerGui.TouchGui.TouchControlFrame.JumpButton.Visible == f then
+
+		plr.PlayerGui.TouchGui.TouchControlFrame.JumpButton.Visible = t
+
+	end
+
+end
+
+	end)
+
+end
+
+end)
