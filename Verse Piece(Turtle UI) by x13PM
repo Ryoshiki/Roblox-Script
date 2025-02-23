@@ -52,7 +52,7 @@ OwO:Toggle("Boss Spawn(Hakari)", false, function(bool)
 
 _G.AutoFarm = bool
 
-while _G.AutoFarm do wait(.1)
+while _G.AutoFarm do wait(.001)
 
   pcall(function()
 
@@ -112,7 +112,7 @@ _G.AutoFarm = bool
 
 
 
-while _G.AutoFarm do wait(.1)
+while _G.AutoFarm do wait(.001)
 
   pcall(function()
 
