@@ -1,0 +1,285 @@
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/turtle"))()
+
+
+
+
+
+
+
+local OwO = library:Window("Table Turtle Hub")
+
+
+
+OwO:Toggle("M1(equip item for use)", false, function(bool)
+
+_G.M1 = bool
+
+while _G.M1 do wait(.10)
+
+	pcall(function()
+
+for i,v in next, game.Players.LocalPlayer.Character:GetChildren() do
+
+	if v.ClassName == "Tool" then
+
+		game:GetService("ReplicatedStorage").Remotes.Serverside:FireServer("Server","Sword","M1s",1,"Cid's")
+
+		game:GetService("ReplicatedStorage").Remotes.Serverside:FireServer("Server","Sword","M1s",1,"Cid Kagenou")
+
+		game:GetService("ReplicatedStorage").Remotes.Serverside:FireServer("Server","Sword","M1s",1,"Zenitsu")
+
+		game:GetService("ReplicatedStorage").Remotes.Serverside:FireServer("Server","Sword","M1s",1,"Alucard")
+
+		game:GetService("ReplicatedStorage").Remotes.Serverside:FireServer("Server","Sword","M1s",1,"Starkk")
+
+		game:GetService("ReplicatedStorage").Remotes.Serverside:FireServer("Server","Sword","M1s",1,"Sung Jin Woo")
+
+		game:GetService("ReplicatedStorage").Remotes.Serverside:FireServer("Server","Sword","M1s",1,"Yoriichi")
+
+	end
+
+end
+
+	end)
+
+end
+
+end)
+
+
+
+OwO:Toggle("Boss Spawn(Hakari)", false, function(bool)
+
+_G.AutoFarm = bool
+
+while _G.AutoFarm do wait(.1)
+
+  pcall(function()
+
+local plr = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+
+
+for i,v in next, workspace.Main.Skull:GetChildren() do
+
+lpr = game:GetService("Players").LocalPlayer
+
+task.spawn(function()
+
+    while task.wait() do
+
+        pcall(function()
+
+            if _G.AutoFarm  then
+
+                if syn then    setfflag("HumanoidParallelRemoveNoPhysics", "False")
+
+                    setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+
+                    lpr.Character.Humanoid:ChangeState(11)
+
+                    if lpr.Character:WaitForChild("Humanoid").Sit == true then
+
+                        lpr.Character:WaitForChild("Humanoid").Sit = false
+
+                    end
+
+                else
+
+                    if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+
+                        if not lpr.Character.HumanoidRootPart:FindFirstChild("BodyVelocity1") then
+
+                            if lpr.Character:WaitForChild("Humanoid").Sit == true then
+
+                                lpr.Character:WaitForChild("Humanoid").Sit = false
+
+                            end
+
+                            local bodyVelocity = Instance.new("BodyVelocity")
+
+                            bodyVelocity.Name = "BodyVelocity1"
+
+                            bodyVelocity.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+                            bodyVelocity.velocity = Vector3.new(0, 0, 0)
+
+                            bodyVelocity.maxForce = Vector3.new(100000, 100000, 100000)
+
+                        end
+
+                    end
+
+                end
+
+            else
+
+                lpr.Character.HumanoidRootPart:FindFirstChild("BodyVelocity1"):Destroy()
+
+            end
+
+        end)
+
+    end
+
+end)
+
+  
+
+  if v:IsA("Model") and v.Name:lower():find("lv.") then
+
+    plr.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, 3)
+
+  end
+
+
+
+    for _,e in next, game:GetService("Players").LocalPlayer.InventoryData.Material:GetChildren() do
+
+      if e.Name:lower():find("boss ticket") then
+
+        game:GetService("GuiService").SelectedObject = game:GetService("Players").LocalPlayer.PlayerGui.Misc.Boss.Iinv.Stock["Hakari [Gambler]"].Spawn
+
+        game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.Return, false, game)
+
+        game:GetService("VirtualInputManager"):SendKeyEvent(false, Enum.KeyCode.Return, false, game)
+
+        game:GetService("Players").LocalPlayer.PlayerGui.Misc.Boss.Visible = false
+
+      end
+
+    end
+
+    if _G.AutoFarm then
+
+      game:GetService("Players").LocalPlayer.PlayerGui.Misc.Boss.Visible = true
+
+    end
+
+end
+
+  end)
+
+end
+
+end)
+
+OwO:Toggle("Boss Spawn(Toji)", false, function(bool)
+
+
+
+_G.AutoFarm = bool
+
+
+
+while _G.AutoFarm do wait(.1)
+
+  pcall(function()
+
+local plr = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+
+
+for i,v in next, workspace.Main.Skull:GetChildren() do
+
+lpr = game:GetService("Players").LocalPlayer
+
+task.spawn(function()
+
+    while task.wait() do
+
+        pcall(function()
+
+            if _G.AutoFarm  then
+
+                if syn then    setfflag("HumanoidParallelRemoveNoPhysics", "False")
+
+                    setfflag("HumanoidParallelRemoveNoPhysicsNoSimulate2", "False")
+
+                    lpr.Character.Humanoid:ChangeState(11)
+
+                    if lpr.Character:WaitForChild("Humanoid").Sit == true then
+
+                        lpr.Character:WaitForChild("Humanoid").Sit = false
+
+                    end
+
+                else
+
+                    if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+
+                        if not lpr.Character.HumanoidRootPart:FindFirstChild("BodyVelocity1") then
+
+                            if lpr.Character:WaitForChild("Humanoid").Sit == true then
+
+                                lpr.Character:WaitForChild("Humanoid").Sit = false
+
+                            end
+
+                            local bodyVelocity = Instance.new("BodyVelocity")
+
+                            bodyVelocity.Name = "BodyVelocity1"
+
+                            bodyVelocity.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+                            bodyVelocity.velocity = Vector3.new(0, 0, 0)
+
+                            bodyVelocity.maxForce = Vector3.new(100000, 100000, 100000)
+
+                        end
+
+                    end
+
+                end
+
+            else
+
+                lpr.Character.HumanoidRootPart:FindFirstChild("BodyVelocity1"):Destroy()
+
+            end
+
+        end)
+
+    end
+
+end)
+
+  
+
+  if v:IsA("Model") and v.Name:lower():find("lv.") then
+
+    plr.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, 3)
+
+  end
+
+
+
+    for _,e in next, game:GetService("Players").LocalPlayer.InventoryData.Material:GetChildren() do
+
+      if e.Name:lower():find("boss ticket") then
+
+        game:GetService("GuiService").SelectedObject = game:GetService("Players").LocalPlayer.PlayerGui.Misc.Boss.Iinv.Stock["Toji [Unleashed]"].Spawn
+
+        game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.Return, false, game)
+
+        game:GetService("VirtualInputManager"):SendKeyEvent(false, Enum.KeyCode.Return, false, game)
+
+        game:GetService("Players").LocalPlayer.PlayerGui.Misc.Boss.Visible = false
+
+      end
+
+    end
+
+    if _G.AutoFarm then
+
+      game:GetService("Players").LocalPlayer.PlayerGui.Misc.Boss.Visible = true
+
+    end
+
+end
+
+  end)
+
+end
+
+end)
