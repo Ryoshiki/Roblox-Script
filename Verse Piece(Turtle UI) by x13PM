@@ -30,8 +30,6 @@ for i,v in next, game.Players.LocalPlayer.Character:GetChildren() do
 
 		game:GetService("ReplicatedStorage").Remotes.Serverside:FireServer("Server","Sword","M1s",1,"Yoriichi")
 
-    game:GetService("ReplicatedStorage").Remotes.Serverside:FireServer("Server","Sword","M1s",1,"Red Mist")
-
 	end
 
 end
@@ -76,9 +74,9 @@ lpr = game:GetService("Players").LocalPlayer
 
         game:GetService("GuiService").SelectedObject = game:GetService("Players").LocalPlayer.PlayerGui.Misc.Boss.Iinv.Stock["Hakari [Gambler]"].Spawn
 
-        game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.Return, false, game)
+        game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.Return,false,game)
 
-        game:GetService("VirtualInputManager"):SendKeyEvent(false, Enum.KeyCode.Return, false, game)
+        game:GetService("VirtualInputManager"):SendKeyEvent(false,Enum.KeyCode.Return,false,game)
 
         game:GetService("Players").LocalPlayer.PlayerGui.Misc.Boss.Visible = false
 
@@ -136,9 +134,9 @@ lpr = game:GetService("Players").LocalPlayer
 
         game:GetService("GuiService").SelectedObject = game:GetService("Players").LocalPlayer.PlayerGui.Misc.Boss.Iinv.Stock["Toji [Unleashed]"].Spawn
 
-        game:GetService("VirtualInputManager"):SendKeyEvent(true, Enum.KeyCode.Return, false, game)
+        game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.Return,false,game)
 
-        game:GetService("VirtualInputManager"):SendKeyEvent(false, Enum.KeyCode.Return, false, game)
+        game:GetService("VirtualInputManager"):SendKeyEvent(false,Enum.KeyCode.Return,false,game)
 
         game:GetService("Players").LocalPlayer.PlayerGui.Misc.Boss.Visible = false
 
@@ -153,6 +151,36 @@ lpr = game:GetService("Players").LocalPlayer
     end
 
 end
+
+  end)
+
+end
+
+end)
+
+
+
+OwO:Toggle("Spin×100(Open Gacha first)", false, function(bool)
+
+
+
+local Player = game:GetService("Players")
+
+local lpr = Player.LocalPlayer
+
+
+
+_G.R = bool
+
+while _G.R do wait()
+
+  pcall(function()
+
+    game:GetService("GuiService").SelectedObject = game:GetService("Players").LocalPlayer.PlayerGui.Gacha.Gacha.Main.UI.Btn.Spinx100.Button
+
+    game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.Return,false,game)
+
+    game:GetService("VirtualInputManager"):SendKeyEvent(false,Enum.KeyCode.Return,false,game)
 
   end)
 
