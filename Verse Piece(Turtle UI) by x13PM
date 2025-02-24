@@ -30,6 +30,8 @@ for i,v in next, game.Players.LocalPlayer.Character:GetChildren() do
 
 		game:GetService("ReplicatedStorage").Remotes.Serverside:FireServer("Server","Sword","M1s",1,"Yoriichi")
 
+    game:GetService("ReplicatedStorage").Remotes.Serverside:FireServer("Server","Sword","M1s",1,"Red Mist")
+
 	end
 
 end
