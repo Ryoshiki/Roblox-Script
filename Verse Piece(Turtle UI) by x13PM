@@ -1,6 +1,10 @@
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/turtle"))()
 
+
+
 local OwO = library:Window("Verse Piece by x13PM")
+
+
 
 
 
@@ -8,9 +12,11 @@ OwO:Toggle("M1(equip item for use)", false, function(bool)
 
 _G.M1 = bool
 
-while _G.M1 do wait(.10)
+game:GetService('RunService').RenderStepped:connect(function()
 
 	pcall(function()
+
+    if _G.M1 then
 
 for i,v in next, game.Players.LocalPlayer.Character:GetChildren() do
 
@@ -34,9 +40,11 @@ for i,v in next, game.Players.LocalPlayer.Character:GetChildren() do
 
 end
 
+    end
+
 	end)
 
-end
+end)
 
 end)
 
@@ -159,6 +167,66 @@ end
 end)
 
 
+
+OwO:Toggle("Boss Spawn(Urume)", false, function(bool)
+
+
+
+_G.AutoFarm = bool
+
+
+
+while _G.AutoFarm do wait(.1)
+
+  pcall(function()
+
+local plr = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+
+
+for i,v in next, workspace.Main.Skull:GetChildren() do
+
+lpr = game:GetService("Players").LocalPlayer
+
+  
+
+  if v:IsA("Model") and v.Name:lower():find("lv.") then
+
+    plr.CFrame = v.HumanoidRootPart.CFrame * CFrame.new(0, 0, 3)
+
+  end
+
+
+
+    for _,e in next, game:GetService("Players").LocalPlayer.InventoryData.Material:GetChildren() do
+
+      if e.Name:lower():find("boss ticket") then
+
+        game:GetService("GuiService").SelectedObject = game:GetService("Players").LocalPlayer.PlayerGui.Misc.Boss.Iinv.Stock.Uraume.Spawn
+
+        game:GetService("VirtualInputManager"):SendKeyEvent(true,Enum.KeyCode.Return,false,game)
+
+        game:GetService("VirtualInputManager"):SendKeyEvent(false,Enum.KeyCode.Return,false,game)
+
+        game:GetService("Players").LocalPlayer.PlayerGui.Misc.Boss.Visible = false
+
+      end
+
+    end
+
+    if _G.AutoFarm then
+
+      game:GetService("Players").LocalPlayer.PlayerGui.Misc.Boss.Visible = true
+
+    end
+
+end
+
+  end)
+
+end
+
+end)
 
 OwO:Toggle("Spin×100(Open Gacha first)", false, function(bool)
 
